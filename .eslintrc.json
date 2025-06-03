@@ -1,13 +1,14 @@
 {
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "prettier",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["next", "next/core-web-vitals", "prettier", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2023,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "plugins": ["@typescript-eslint"],
   "rules": {
+    // Your existing import rules
     "import/extensions": "off",
     "import/no-cycle": "warn",
     "import/no-extraneous-dependencies": [
@@ -24,6 +25,9 @@
     "import/no-useless-path-segments": "warn",
     "import/order": "off",
     "import/prefer-default-export": "warn",
+    "import/no-duplicates": "error",
+
+    // Your existing general rules
     "no-duplicate-imports": "warn",
     "no-empty-function": "off",
     "no-explicit-any": "off",
@@ -32,6 +36,8 @@
     "prefer-arrow-callback": "error",
     "prefer-const": "warn",
     "prefer-template": "error",
+
+    // Your existing React rules
     "react/destructuring-assignment": "warn",
     "react/function-component-definition": [
       2,
@@ -41,7 +47,6 @@
     ],
     "react/jsx-curly-brace-presence": "warn",
     "react/jsx-filename-extension": "off",
-    // "react/jsx-fragments": [2, "element"],
     "react/jsx-indent": "off",
     "react/jsx-indent-props": "off",
     "react/jsx-one-expression-per-line": "off",
@@ -72,13 +77,45 @@
     "react/sort-comp": "warn",
     "react/static-property-placement": ["warn", "static public field"],
 
-    // TypeScript-specific rules
+    // Your existing TypeScript rules
     "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      { "argsIgnorePattern": "^_" }
-    ],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
-  }
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+
+    // NEW: Additional TypeScript rules (optional - you can remove if not wanted)
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/prefer-optional-chain": "warn",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/await-thenable": "error",
+
+    // NEW: Additional general rules (optional)
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-unused-expressions": "error",
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+
+    // NEW: Additional React rules (optional)
+    "react/jsx-boolean-value": "error",
+    "react/jsx-fragments": ["error", "syntax"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["next.config.ts", "tailwind.config.ts", "jest.config.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["*.woff2", "dist", "out", "node_modules", ".next/", "coverage", "public"]
 }

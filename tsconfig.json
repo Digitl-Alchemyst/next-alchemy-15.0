@@ -23,18 +23,15 @@
       }
     ],
     "paths": {
-      "#/*": ["./*"],
       "@/*": ["./src/*"],
-      "@/a/*": ["./src/app/*"],
-      "@/api/*": ["./src/app/api/*"],
-      "@/c/*": ["./src/components/*"],
-      "@/h/*": ["./src/hooks/*"],
-      "@/l/*": ["./src/lib/*"],
-<<<<<<< HEAD
-=======
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/utils/*": ["./src/util/*"],
+      "@/types/*": ["./src/models/types/*"],
+      "@/app/*": ["./src/app/*"],
       "@/s/*": ["./src/server/*"],
->>>>>>> 8dff3a88f1e948532ec772cb3f0c3dd733b86f27
-      "@/u/*": ["src/util/*"]
+      "#/*": ["./*"]
     },
     "rootDir": "./",
     "baseUrl": ".",
