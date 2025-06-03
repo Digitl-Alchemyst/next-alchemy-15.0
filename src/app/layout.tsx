@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
-import '../globals.css';
+import './globals.css';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -13,18 +13,18 @@ import Footer from '@/components/global/Footer';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import { Toaster } from '@/components/ui/toaster';
 
-// Import environment validation
-import '@/lib/env';
+// // Import environment validation
+// import '@/lib/env';
 
 const geistSans = localFont({
-  src: '../fonts/GeistVF.woff',
+  src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
   weight: '100 900',
   display: 'swap',
 });
 
 const geistMono = localFont({
-  src: '../fonts/GeistMonoVF.woff',
+  src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
   weight: '100 900',
   display: 'swap',

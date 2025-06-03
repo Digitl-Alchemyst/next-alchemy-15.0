@@ -3,7 +3,7 @@ import { Github } from "lucide-react";
 import { ThemeToggle } from "@/components/global/ThemeToggle";
 import Link from "next/link";
 
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Search from "./Search";
@@ -43,12 +43,6 @@ const Header = () => {
               <TrolleyIcon className="h-5 w-5 sm:h-6 sm:w-6" />
             </Link>
             <ThemeToggle />
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
           </div>
         </div>
         <div className="sm:hidden border-t border-light-300 dark:border-dark-600 p-2">
