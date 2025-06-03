@@ -140,7 +140,13 @@ const Footer = () => {
             <div className='flex items-center space-x-1 text-sm text-dark-600 dark:text-light-400'>
               <span>Built with</span>
               <Heart className='h-4 w-4 fill-current text-red-500' />
-              <span>using Next.js 15</span>
+              <span>using Next.js 15 by</span>
+              <Link
+              href='https://alchemy.digital/'
+              className='font-medium text-accent1-600 transition-colors hover:text-accent1-400'
+              >
+                Alchemy Labz
+                </Link>
             </div>
           </div>
         </div>
