@@ -4,19 +4,20 @@ import { AlertCircle, ChevronDown, Github } from 'lucide-react';
 
 const HomePage = () => {
   const features = [
-    'Next.js 14 App Router',
-    'TypeScript 5.5',
+    'Next.js 15.3 App Router',
+    'React 19.1',
+    'TypeScript 5.8',
     'Tailwind CSS 3.4',
-    'Shadcn 2.1.2',
+    'Shadcn UI 2.1',
     'Lucide + React Icons',
     'Next-Themes Dark Mode',
-    'ESLint 8.57',
-    'Prettier 3.3',
+    'ESLint 9.28',
+    'Prettier 3.5',
     'Jest 29.7',
-    'React Testing Library 16.0',
-    'Husky 8.0',
-    'Lint-Staged 15.2',
-    'Commitlint 16.2',
+    'React Testing Library 16.3',
+    'Husky 9.1',
+    'Lint-Staged 16.1',
+    'Commitlint 19.8',
   ];
 
   return (
@@ -36,17 +37,17 @@ const HomePage = () => {
           </div>
 
           <h1 className='mt-8 text-center text-4xl font-bold text-gradient-lime-violet'>
-            Next-Alchemy 14.2
+            Next-Alchemy 15
           </h1>
 
           <p className='mt-4 text-xl text-dark-600 dark:text-light-300'>
-            Your Ultimate Next.js Boilerplate
+            Your Ultimate Next.js 15 Boilerplate
           </p>
         </div>
 
         {/* Repository Link */}
         <Link
-          href='https://github.com/Digitl-Alchemyst/next-alchemy-14.2'
+          href='https://github.com/Digitl-Alchemyst/next-alchemy-15'
           className='group relative mt-8'
         >
           <button className='flex items-center gap-2 rounded-lg bg-slate-800 px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:neon-accent1 dark:bg-slate-700 dark:hover:neon-amber'>
