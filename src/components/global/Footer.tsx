@@ -1,158 +1,69 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className='border-t border-light-300 bg-light-200/80 backdrop-blur-sm dark:border-dark-600 dark:bg-dark-800/80'>
-      <div className='container mx-auto px-4 py-8'>
-        <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4'>
-          {/* Brand Section */}
-          <div className='space-y-4'>
-            <div className='flex items-center space-x-2'>
-              <Image
-                src='/logo.jpg'
-                alt='Next Alchemy Logo'
-                width={32}
-                height={32}
-                className='h-8 w-8 rounded-full'
-              />
-              <h3 className='text-lg font-bold text-gradient-lime-violet'>Next Alchemy 15</h3>
-            </div>
-            <p className='max-w-xs text-sm text-dark-600 dark:text-light-400'>
-              Your ultimate Next.js 15 boilerplate with modern tools and best practices.
+    <footer className="bg-muted">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold">Palestine Tracker</h3>
+            <p className="text-sm text-muted-foreground">
+              Tracking grassroots campaigns, protests, and aid initiatives for Palestine and Gaza.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className='space-y-4'>
-            <h4 className='text-lg font-semibold text-dark-700 dark:text-light-200'>
-              Quick Links
-            </h4>
-            <nav className='flex flex-col space-y-2'>
-              <Link
-                href='/docs'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Documentation
-              </Link>
-              <Link
-                href='/components'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Components
-              </Link>
-              <Link
-                href='/examples'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Examples
-              </Link>
-              <Link
-                href='/changelog'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Changelog
-              </Link>
-            </nav>
-          </div>
-
-          {/* Resources */}
-          <div className='space-y-4'>
-            <h4 className='text-lg font-semibold text-dark-700 dark:text-light-200'>Resources</h4>
-            <nav className='flex flex-col space-y-2'>
-              <Link
-                href='/getting-started'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Getting Started
-              </Link>
-              <Link
-                href='/guides'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Guides
-              </Link>
-              <Link
-                href='/api-reference'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                API Reference
-              </Link>
-              <Link
-                href='/support'
-                className='text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                Support
-              </Link>
-            </nav>
-          </div>
-
-          {/* Contact & Social */}
-          <div className='space-y-4'>
-            <h4 className='text-lg font-semibold text-dark-700 dark:text-light-200'>Connect</h4>
-            <div className='space-y-2'>
-              <Link
-                href='mailto:contact@example.com'
-                className='flex items-center space-x-2 text-sm text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-              >
-                <Mail className='h-4 w-4' />
-                <span>contact@example.com</span>
-              </Link>
+            <div className="flex space-x-4">
+              <Button variant="ghost" size="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-1-4.8 4-8.9 8-5 1.6-1 3-2.2 3.8-4z"/></svg>
+              </Button>
+              <Button variant="ghost" size="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </Button>
+              <Button variant="ghost" size="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </Button>
             </div>
+          </div>
 
-            {/* Social Links */}
-            <div className='flex space-x-4 pt-2'>
-              <Link
-                href='https://github.com/your-username'
-                className='text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-                aria-label='GitHub'
-              >
-                <Github className='h-5 w-5' />
-              </Link>
-              <Link
-                href='https://twitter.com/your-username'
-                className='text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-                aria-label='Twitter'
-              >
-                <Twitter className='h-5 w-5' />
-              </Link>
-              <Link
-                href='https://linkedin.com/in/your-username'
-                className='text-dark-600 transition-colors hover:text-accent1-600 dark:text-light-400 dark:hover:text-accent1-400'
-                aria-label='LinkedIn'
-              >
-                <Linkedin className='h-5 w-5' />
-              </Link>
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold">Campaigns</h3>
+            <ul className="space-y-2">
+              <li><Link href="/campaigns/global-march" className="text-sm hover:text-primary">Global March for Gaza</Link></li>
+              <li><Link href="/campaigns/freedom-flotilla" className="text-sm hover:text-primary">Freedom Flotilla</Link></li>
+              <li><Link href="/campaigns/campus-protests" className="text-sm hover:text-primary">Campus Protests</Link></li>
+              <li><Link href="/campaigns/marches" className="text-sm hover:text-primary">Marches for Palestine</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold">Resources</h3>
+            <ul className="space-y-2">
+              <li><Link href="/donations" className="text-sm hover:text-primary">Donation Campaigns</Link></li>
+              <li><Link href="/allies" className="text-sm hover:text-primary">Supporting Organizations</Link></li>
+              <li><Link href="/journalists" className="text-sm hover:text-primary">Journalists</Link></li>
+              <li><Link href="/news" className="text-sm hover:text-primary">News</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold">Stay Updated</h3>
+            <p className="text-sm text-muted-foreground">
+              Subscribe to our newsletter for updates on campaigns and events.
+            </p>
+            <div className="flex gap-2">
+              <Input placeholder="Email address" className="bg-background" />
+              <Button>Subscribe</Button>
             </div>
           </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className='mt-8 border-t border-light-300 pt-6 dark:border-dark-600'>
-          <div className='flex flex-col items-center justify-between space-y-2 md:flex-row md:space-y-0'>
-            <p className='text-sm text-dark-600 dark:text-light-400'>
-              © {currentYear} Next Alchemy 15. All rights reserved.
-            </p>
-            <div className='flex items-center space-x-1 text-sm text-dark-600 dark:text-light-400'>
-              <span>Built with</span>
-              <Heart className='h-4 w-4 fill-current text-red-500' />
-              <span>using Next.js 15 by</span>
-              <Link
-              href='https://alchemy.digital/'
-              className='font-medium text-accent1-600 transition-colors hover:text-accent1-400'
-              >
-                Alchemy Labz
-                </Link>
-            </div>
-          </div>
+        <div className="mt-10 pt-6 border-t border-border">
+          <p className="text-center text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} Palestine Campaigns Tracker. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
-};
+}
 
-export default Footer;
+  export default Footer;

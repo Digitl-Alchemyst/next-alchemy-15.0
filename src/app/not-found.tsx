@@ -1,4 +1,5 @@
 /* eslint-disable react/function-component-definition */
+import Link from 'next/link';
 import React from 'react';
 
 export default function NotFound() {
@@ -15,18 +16,18 @@ export default function NotFound() {
       </p>
 
       <div className='flex gap-6'>
-        <a
+        <Link
           href='/'
           className='rounded border border-accent1-300 bg-light-300 px-6 py-3 font-semibold text-dark-700 transition-colors duration-300 hover:bg-light-400 dark:bg-dark-100 dark:text-light-700 dark:hover:bg-dark-200'
         >
           Back to Home
-        </a>
-        <a
+        </Link>
+        <Link
           href='/contact'
           className='rounded border border-light-400 bg-light-300 px-6 py-3 font-semibold text-dark-700 transition-colors duration-300 hover:bg-light-400 dark:bg-dark-300 dark:text-light-200 dark:hover:bg-dark-400'
         >
           Contact Support
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -5,23 +5,20 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: 'lh3.googleusercontent.com',
-      // },
-      // {
-      //   protocol: 'https',
-      //   hostname: '<project-name>.s3.amazonaws.com',
-      // },
-      // {
-      //   protocol: 'https',
-      //   hostname: 'images.unsplash.com',
-      // },
-      // {
-      //   protocol: 'https',
-      //   hostname: 'cdn.sanity.io',
-      // },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
     ],
+  },
+  env: {
+    NEXT_PUBLIC_DEVELOPMENT_URL:
+      process.env.NEXT_PUBLIC_DEVELOPMENT_URL || 'http://localhost:3000',
+    NEXT_PUBLIC_PRODUCTION_URL: process.env.NEXT_PUBLIC_PRODUCTION_URL || '',
   },
   // These could cause issue may remove
   typescript: {
@@ -44,3 +41,5 @@ const nextConfig: NextConfig = {
     // typedRoutes: true,
   },
 };
+
+export default nextConfig;

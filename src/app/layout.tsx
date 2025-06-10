@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   keywords: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Clerk', 'Sanity'],
   authors: [{ name: 'Your Name' }],
   creator: 'Your Name',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -65,11 +65,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
       <html lang='en' suppressHydrationWarning>
         <head>
@@ -103,3 +103,5 @@ export default function RootLayout({
       </html>
   );
 }
+
+export default RootLayout;

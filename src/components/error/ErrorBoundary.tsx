@@ -19,11 +19,6 @@ interface ErrorBoundaryProps {
 }
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return {
       hasError: true,
@@ -31,7 +26,13 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     };
   }
 
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    const { onError } = this.props;
     console.error('Error Boundary caught an error:', error, errorInfo);
 
     // Log to Sentry
@@ -43,33 +44,37 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     });
 
     // Call custom error handler
-    this.props.onError?.(error, errorInfo);
+    onError?.(error, errorInfo);
 
     this.setState({
       error,
       errorInfo,
     });
   }
+
   handleRetry = () => {
     this.setState({ hasError: false, error: undefined, errorInfo: undefined });
   };
 
   render() {
-    if (this.state.hasError) {
-      if (this.props.fallback) {
-        const FallbackComponent = this.props.fallback;
-        return <FallbackComponent error={this.state.error!} retry={this.handleRetry} />;
+    const { fallback, children } = this.props;
+    const { hasError, error } = this.state;
+
+    if (hasError) {
+      if (fallback) {
+        const FallbackComponent = fallback;
+        return <FallbackComponent error={error!} retry={this.handleRetry} />;
       }
 
-      return <DefaultErrorFallback error={this.state.error!} retry={this.handleRetry} />;
+      return <DefaultErrorFallback error={error!} retry={this.handleRetry} />;
     }
 
-    return this.props.children;
+    return children;
   }
 }
 
 // Default Error Fallback Component
-export function DefaultErrorFallback({ error, retry }: { error: Error; retry: () => void }) {
+export const DefaultErrorFallback = ({ error, retry }: { error: Error; retry: () => void }) => {
   return (
     <div className='flex min-h-[400px] flex-col items-center justify-center space-y-4 p-8'>
       <div className='rounded-full bg-red-100 p-3 dark:bg-red-900/20'>
@@ -97,7 +102,7 @@ export function DefaultErrorFallback({ error, retry }: { error: Error; retry: ()
 
 // Async Error Boundary Hook
 export function useAsyncError() {
-  const [_, setError] = React.useState();
+  const [, setError] = React.useState();
 
   return React.useCallback((error: Error) => {
     setError(() => {
